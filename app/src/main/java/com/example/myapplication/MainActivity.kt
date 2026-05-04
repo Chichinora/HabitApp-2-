@@ -22,8 +22,7 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.ValueFormatter
 
 /* =========================================================
-   📌 Data Model
-   - 用來表示每日習慣完成數
+   Data Model
 ========================================================= */
 data class HabitRecord(
     val day: String,
@@ -31,7 +30,7 @@ data class HabitRecord(
 )
 
 /* =========================================================
-   📌 Fake Data (模擬後端資料)
+   Fake Data
 ========================================================= */
 fun getFakeWeeklyData(): List<HabitRecord> {
     return listOf(
@@ -67,7 +66,7 @@ fun getTrendData(): List<Int> {
     return result
 }
 
-/* 本週完成率（圓餅圖用） */
+/* 本週完成率（圓餅圖） */
 fun getCompletionRate(): Pair<Float, Float> {
     val weekly = getFakeWeeklyData()
 
@@ -81,7 +80,7 @@ fun getCompletionRate(): Pair<Float, Float> {
 }
 
 /* =========================================================
-   📌 Main Activity
+   Main Activity
 ========================================================= */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,7 +101,7 @@ class MainActivity : ComponentActivity() {
 }
 
 /* =========================================================
-   📌 Main UI (三頁 Tab)
+   Main UI (三頁 Tab)
    - 本週完成率
    - 本月比較
    - 使用趨勢
@@ -146,7 +145,7 @@ fun StatsScreen(modifier: Modifier = Modifier) {
 }
 
 /* =========================================================
-   📌 Page 1：本週完成率 + 週分布
+   Page 1：本週完成率 + 週分布
 ========================================================= */
 @Composable
 fun WeeklyScreen() {
@@ -174,7 +173,7 @@ fun WeeklyScreen() {
 }
 
 /* =========================================================
-   📌 Pie Chart (完成率)
+   Pie Chart (完成率)
 ========================================================= */
 @Composable
 fun PieChartView(done: Float, notDone: Float) {
@@ -203,7 +202,7 @@ fun PieChartView(done: Float, notDone: Float) {
 }
 
 /* =========================================================
-   📌 Weekly Bar Chart（每日完成）
+   Weekly Bar Chart（每日完成）
 ========================================================= */
 @Composable
 fun WeeklyBarChart(weekly: List<HabitRecord>) {
@@ -239,7 +238,7 @@ fun WeeklyBarChart(weekly: List<HabitRecord>) {
 }
 
 /* =========================================================
-   📌 Page 2：本月比較
+   Page 2：本月比較
 ========================================================= */
 @Composable
 fun MonthlyScreen() {
@@ -270,7 +269,7 @@ fun MonthlyScreen() {
 }
 
 /* =========================================================
-   📌 Page 3：使用趨勢（累積成長）
+   Page 3：使用趨勢（累積成長）
 ========================================================= */
 @Composable
 fun TrendScreen() {
@@ -304,7 +303,7 @@ fun TrendScreen() {
 }
 
 /* =========================================================
-   📌 Preview
+   Preview
 ========================================================= */
 @Preview(showBackground = true)
 @Composable
