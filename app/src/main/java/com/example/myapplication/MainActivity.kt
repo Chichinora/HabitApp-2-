@@ -125,7 +125,7 @@ fun PieChartView(done: Float, notDone: Float) {
             val dataSet = PieDataSet(entries, "完成率")
             val pieData = PieData(dataSet)
 
-            this.setData(pieData)   // ✅ FIX
+            this.setData(pieData)  
             invalidate()
         }
     }, modifier = Modifier.fillMaxWidth().height(250.dp))
@@ -144,7 +144,7 @@ fun WeeklyBarChart(data: Map<String, Int>) {
             val dataSet = BarDataSet(entries, "週內完成")
             val barData = BarData(dataSet)
 
-            this.setData(barData)   // ✅ FIX
+            this.setData(barData)  
 
             axisLeft.valueFormatter = object : ValueFormatter() {
                 override fun getFormattedValue(value: Float) =
@@ -181,7 +181,7 @@ fun MonthlyScreen(
 
             val dataSet = BarDataSet(entries, "打卡次數")
 
-            this.setData(BarData(dataSet))   // ✅ FIX
+            this.setData(BarData(dataSet))
             invalidate()
         }
     }, modifier = Modifier.fillMaxWidth().height(300.dp))
@@ -211,7 +211,7 @@ fun TrendScreen(
 
             val dataSet = LineDataSet(entries, "累積使用趨勢")
 
-            this.setData(LineData(dataSet))   // ✅ FIX
+            this.setData(LineData(dataSet))  
             invalidate()
         }
     }, modifier = Modifier.fillMaxWidth().height(300.dp))
