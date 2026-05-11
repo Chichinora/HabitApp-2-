@@ -27,6 +27,9 @@ interface HabitDao {
     @Query("SELECT * FROM habit_completions WHERE completedOn = :date")
     fun observeCompletionsForDate(date: String): Flow<List<HabitCompletionEntity>>
 
+    @Query("SELECT * FROM habit_completions")
+    fun observeAllCompletions(): Flow<List<HabitCompletionEntity>>
+
     @Query("SELECT * FROM habit_completions WHERE habitId = :habitId ORDER BY completedOn DESC")
     suspend fun getCompletionsForHabit(habitId: Long): List<HabitCompletionEntity>
 

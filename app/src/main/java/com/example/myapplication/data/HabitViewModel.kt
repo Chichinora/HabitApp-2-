@@ -32,6 +32,13 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
         initialValue = emptyList()
     )
 
+    val completions: StateFlow<List<HabitCompletionEntity>> =
+        repository.observeAllCompletions()
+            .stateIn(
+                viewModelScope,
+                SharingStarted.WhileSubscribed(5000),
+                emptyList()
+            )
     private val _editorState = MutableStateFlow(HabitEditorState())
     val editorState: StateFlow<HabitEditorState> = _editorState.asStateFlow()
 

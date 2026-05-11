@@ -46,6 +46,9 @@ class HabitRepository(
         }
     }
 
+    fun observeAllCompletions(): Flow<List<HabitCompletionEntity>> {
+        return habitDao.observeAllCompletions()
+    }
     suspend fun addHabit(
         name: String,
         icon: String,
